@@ -32,7 +32,6 @@ func NewUserController() IUserController {
 // @Accept application/json
 // @Produce application/json
 // @Param data body request.LoginReq true "登录参数"
-// @Success 200 {object} response.LoginResp "{"code":200,"msg":"ok","data":{}}"
 // @Router /user/login [post]
 func (u *userController) Login(ctx *gin.Context) {
 	var req request.LoginReq
@@ -48,7 +47,7 @@ func (u *userController) Login(ctx *gin.Context) {
 // @Tags API.user
 // @Accept application/json
 // @Produce application/json
-// @Param data body request.RegisterReq{model.UserBase,model.GatewayBase,model.ApplicationChainBase,model.CrossChainChannelBase} true "注册参数"
+// @Param data body request.RegisterReq{model.UserBase} true "注册参数"
 // @Success 200 {object} response.EmptyResp "{"code":200,"msg":"ok","data":{}}"
 // @Router /user/register [post]
 func (u *userController) Register(ctx *gin.Context) {
