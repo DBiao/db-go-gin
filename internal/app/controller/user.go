@@ -48,7 +48,6 @@ func (u *userController) Login(ctx *gin.Context) {
 // @Accept application/json
 // @Produce application/json
 // @Param data body request.RegisterReq{model.UserBase} true "注册参数"
-// @Success 200 {object} response.EmptyResp "{"code":200,"msg":"ok","data":{}}"
 // @Router /user/register [post]
 func (u *userController) Register(ctx *gin.Context) {
 	var req request.RegisterReq

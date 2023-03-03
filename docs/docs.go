@@ -96,14 +96,7 @@ const docTemplate = `{
                         }
                     }
                 ],
-                "responses": {
-                    "200": {
-                        "description": "{\"code\":200,\"msg\":\"ok\",\"data\":{}}",
-                        "schema": {
-                            "$ref": "#/definitions/response.EmptyResp"
-                        }
-                    }
-                }
+                "responses": {}
             }
         }
     },

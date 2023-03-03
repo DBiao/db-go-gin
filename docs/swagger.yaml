@@ -98,11 +98,7 @@ paths:
           $ref: '#/definitions/request.RegisterReq'
       produces:
       - application/json
-      responses:
-        "200":
-          description: '{"code":200,"msg":"ok","data":{}}'
-          schema:
-            $ref: '#/definitions/response.EmptyResp'
+      responses: {}
       summary: 注册账号
       tags:
       - API.user
