@@ -14,6 +14,8 @@ ORM框架：Gorm
 权限管理框架：Casbin
 用户认证：Jwt
 接口文档：Swagger
+资源监控：Prometheus
+发送邮件：gomail.v2
 
 
 ### 项目目录简介
