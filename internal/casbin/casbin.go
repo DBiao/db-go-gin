@@ -8,27 +8,9 @@ import (
 	"gorm.io/gorm"
 )
 
-const (
-	Admin             = "1" // 云平台管理员
-	Gateway           = "2" // 网关用户
-	ApplicationChain  = "3" // 应用链用户
-	CrossChainChannel = "4" // 跨链通道用户
-)
+const ()
 
-var carbines = []gormadapter.CasbinRule{
-	// 管理员权限
-	{Ptype: "p", V0: Admin, V1: "/user/resetPassword", V2: "PUT"},
-	{Ptype: "p", V0: Admin, V1: "/user/delete/:id", V2: "DELETE"},
-	{Ptype: "p", V0: Admin, V1: "/user/auditUserRegister", V2: "POST"},
-	{Ptype: "p", V0: Admin, V1: "/user/getAllUser", V2: "POST"},
-	{Ptype: "p", V0: Admin, V1: "/user/getUserById/:id", V2: "GET"},
-
-	// 网关用户权限
-
-	// 应用链用户权限
-
-	// 跨链管理用户权限
-}
+var carbines = []gormadapter.CasbinRule{}
 
 // InitCasbin 初始化权限表数据
 func InitCasbin() error {

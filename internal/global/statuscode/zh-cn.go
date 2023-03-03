@@ -13,7 +13,4 @@ var zhCNText = map[int]string{
 
 	RegisterAccountTypeError: "注册账号类型错误",
 	RegisterAccountError:     "注册账号错误",
-	AccountNoAuditError:      " 注册审核不通过",
-	UpdateUserPasswordError:  "修改密码错误",
-	UpdateUserInfoError:      "修改用户信息错误",
 }

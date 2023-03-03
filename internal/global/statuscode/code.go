@@ -15,9 +15,6 @@ const (
 	UserLoginPasswordError   = 100101 // 密码错误
 	RegisterAccountTypeError = 100102 // 注册账号类型错误
 	RegisterAccountError     = 100103 // 注册账号错误
-	AccountNoAuditError      = 100104 // 注册审核不通过
-	UpdateUserPasswordError  = 100105 // 修改密码错误
-	UpdateUserInfoError      = 100106 // 修改用户信息错误
 
 )
 

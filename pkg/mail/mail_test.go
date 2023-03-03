@@ -10,7 +10,7 @@ func TestSend(t *testing.T) {
 		MailHost: "smtp.163.com",
 		MailPort: 465,
 		MailUser: "15873458721@163.com",
-		MailPass: "BEQMOUBTMPWNNYIJ", //授权码
+		MailPass: "xx", //授权码
 		MailTo:   "624796905@qq.com",
 		Subject:  "subject",
 		Body:     "body",
