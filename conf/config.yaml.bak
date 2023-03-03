@@ -1,0 +1,23 @@
+system:
+  port: 10010
+  mode: release
+  model-path: ./conf
+zap:
+  level: info
+  format: console
+  prefix: '[db-go-gin]'
+  showLine: true
+  encode-level: LowercaseColorLevelEncoder
+  stacktrace-key: stacktrace
+  link-name: 'latest_log'
+  log-in-console: true
+mysql:
+  path: 127.0.0.1:3306
+  config: charset=utf8&parseTime=True&loc=Local
+  db-name: cross-chain
+  username: root
+  password: root
+  max-idle-conns: 10
+  max-open-conns: 20
+  log-mode: warn
+  log-zap: true
