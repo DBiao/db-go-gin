@@ -10,7 +10,5 @@ var zhCNText = map[int]string{
 
 	UserLoginAccountError:  "账号错误",
 	UserLoginPasswordError: "密码错误",
-
-	RegisterAccountTypeError: "注册账号类型错误",
-	RegisterAccountError:     "注册账号错误",
+	RegisterAccountError:   "注册账号错误",
 }

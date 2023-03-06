@@ -11,10 +11,9 @@ const (
 	SystemUploadImgError  = 100003 // 上传图片错误
 	SystemParamsError     = 100004 // 参数错误
 
-	UserLoginAccountError    = 100100 // 用户名错误
-	UserLoginPasswordError   = 100101 // 密码错误
-	RegisterAccountTypeError = 100102 // 注册账号类型错误
-	RegisterAccountError     = 100103 // 注册账号错误
+	UserLoginAccountError  = 100100 // 用户名错误
+	UserLoginPasswordError = 100101 // 密码错误
+	RegisterAccountError   = 100102 // 注册账号错误
 
 )
 

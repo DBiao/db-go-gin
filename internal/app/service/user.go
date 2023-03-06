@@ -82,11 +82,6 @@ func (u *userService) Login(req request.LoginReq) response.ResponseMsg {
 }
 
 func (u *userService) Register(req request.RegisterReq) response.ResponseMsg {
-	if req.AccountType != Gateway && req.AccountType != ApplicationChain && req.AccountType != CrossChainChannel {
-		global.LOG.Error("account type error", zap.Uint8("accountType", req.AccountType))
-		return response.NewErrorRespMsg(statuscode.RegisterAccountTypeError, statuscode.GetText(statuscode.RegisterAccountTypeError))
-	}
-
 	user := &model.User{
 		UserBase: req.UserBase,
 	}
