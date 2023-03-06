@@ -5,7 +5,6 @@ import (
 )
 
 func TestSend(t *testing.T) {
-
 	options := &Options{
 		MailHost: "smtp.163.com",
 		MailPort: 465,

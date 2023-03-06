@@ -5,6 +5,7 @@ import (
 	cs "db-go-gin/internal/casbin"
 	"db-go-gin/internal/global"
 	"db-go-gin/internal/router"
+	"db-go-gin/pkg/cache"
 	"db-go-gin/pkg/logger"
 	"db-go-gin/pkg/orm"
 	"db-go-gin/pkg/shutdown"
@@ -51,6 +52,11 @@ func Start() {
 		log.Fatal(err)
 	}
 
+	// 初始化Redis
+	if err = cache.InitRedis(); err != nil {
+		log.Fatal(err)
+	}
+
 	// 初始化Gin
 	router.InitRouter()
 }
@@ -58,7 +64,7 @@ func Start() {
 // Close 优雅关闭
 func Close() {
 	shutdown.NewHook().Close(
-		// 关闭 http server
+		// 关闭http server
 		func() {
 			ctx, cancel := context.WithTimeout(context.Background(), time.Second*10)
 			defer cancel()
@@ -68,7 +74,7 @@ func Close() {
 			}
 		},
 
-		// 关闭 mysql
+		// 关闭mysql
 		func() {
 			if global.DB != nil {
 				if db, err := global.DB.DB(); err != nil {
@@ -77,5 +83,10 @@ func Close() {
 					}
 				}
 			}
+		},
+
+		// 关闭Redis
+		func() {
+			cache.Close()
 		})
 }

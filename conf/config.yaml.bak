@@ -1,6 +1,6 @@
 system:
   port: 8888
-  mode: release
+  mode: debug
   model-path: ./conf/rbac_model.conf
 zap:
   level: info
@@ -21,3 +21,10 @@ mysql:
   max-open-conns: 20
   log-mode: warn
   log-zap: true
+redis:
+  host: "172.25.153.26"
+  port: 6379
+  password: "root"
+  db: 0
+  pool-size: 100
+
