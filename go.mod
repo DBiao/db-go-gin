@@ -4,6 +4,7 @@ go 1.19
 
 require (
 	github.com/JGLTechnologies/gin-rate-limit v1.5.4
+	github.com/bits-and-blooms/bitset v1.5.0
 	github.com/casbin/casbin/v2 v2.64.0
 	github.com/casbin/gorm-adapter/v3 v3.14.0
 	github.com/fsnotify/fsnotify v1.6.0
@@ -19,6 +20,7 @@ require (
 	github.com/redis/go-redis/v9 v9.0.2
 	github.com/snowlyg/multi v0.0.42
 	github.com/sony/sonyflake v1.1.0
+	github.com/spaolacci/murmur3 v1.1.0
 	github.com/spf13/cast v1.5.0
 	github.com/spf13/viper v1.15.0
 	github.com/swaggo/files v1.0.0
