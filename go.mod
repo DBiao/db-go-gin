@@ -12,6 +12,7 @@ require (
 	github.com/gin-gonic/gin v1.9.0
 	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/gookit/color v1.5.2
+	github.com/gorilla/websocket v1.5.0
 	github.com/gphper/ginmonitor v0.0.0-20210916123007-3e407ca66b8d
 	github.com/lestrrat-go/file-rotatelogs v2.4.0+incompatible
 	github.com/prometheus/client_golang v1.14.0

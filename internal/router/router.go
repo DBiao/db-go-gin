@@ -48,6 +48,8 @@ func newRouter() *gin.Engine {
 	// swagger接口文档
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
+	router.GET("ws", WsHandle)
+
 	// 用户接口
 	userGroup := router.Group("user")
 	GroupApp.InitUserRouter(userGroup)
