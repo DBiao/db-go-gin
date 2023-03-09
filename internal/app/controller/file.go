@@ -8,7 +8,6 @@ import (
 	"io"
 	"io/ioutil"
 	"log"
-	"net/http"
 	"os"
 	"path"
 	"strconv"
@@ -66,14 +65,14 @@ func UploadFile(ctx *gin.Context) {
 }
 
 // Chunks 合并文件
-func Chunks(w http.ResponseWriter, r *http.Request) {
-	size, _ := strconv.ParseInt(r.PostFormValue("size"), 10, 64)
-	hash := r.PostFormValue("hash")
-	name := r.PostFormValue("name")
+func Chunks(ctx *gin.Context) {
+	size, _ := strconv.ParseInt(ctx.PostForm("size"), 10, 64)
+	hash := ctx.PostForm("hash")
+	name := ctx.PostForm("name")
 
 	toSize, _ := utils.GetDirSize(path.Join(uploadTempPath, hash, "/"))
 	if size != toSize {
-		fmt.Fprintf(w, "文件上传错误")
+		fmt.Fprintf(ctx.Writer, "文件上传错误")
 	}
 	chunksPath := path.Join(uploadTempPath, hash, "/")
 	files, _ := ioutil.ReadDir(chunksPath)
@@ -91,7 +90,7 @@ func Chunks(w http.ResponseWriter, r *http.Request) {
 	var wg sync.WaitGroup
 	filesCount := len(files)
 	if filesCount != len(filesSort) {
-		fmt.Fprintf(w, "文件上传错误2")
+		fmt.Fprintf(ctx.Writer, "文件上传错误2")
 	}
 	wg.Add(filesCount)
 	for i := 0; i < filesCount; i++ {
