@@ -4,11 +4,9 @@ import (
 	"time"
 )
 
-type TimerFunc func(interface{}) bool
-
 type Task interface {
-	start() bool
-	stop() bool
+	Start() bool
+	Stop() bool
 }
 
 // Timer
@@ -19,10 +17,10 @@ type Task interface {
  * @fun   定时执行function
  * @param fun参数
  */
-func timer(delay, tick time.Duration, task Task) {
+func Timer(delay, tick time.Duration, task Task) {
 	go func() {
 		defer func() {
-			task.stop()
+			task.Stop()
 		}()
 
 		t := time.NewTimer(delay)
@@ -31,7 +29,7 @@ func timer(delay, tick time.Duration, task Task) {
 		for {
 			select {
 			case <-t.C:
-				if task.start() {
+				if task.Start() {
 					return
 				}
 				if t.Reset(tick) {
