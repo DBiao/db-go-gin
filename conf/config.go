@@ -5,4 +5,5 @@ type Config struct {
 	Zap    Zap    `mapstructure:"zap" yaml:"zap"`
 	Mysql  Mysql  `mapstructure:"mysql" yaml:"mysql"`
 	Redis  Redis  `mapstructure:"redis" yaml:"redis"`
+	Minio  Minio  `mapstructure:"minio" yaml:"minio"`
 }

@@ -2,6 +2,7 @@ system:
   port: 8888
   mode: debug
   model-path: ./conf/rbac_model.conf
+  limit: 100
 zap:
   level: info
   format: console
@@ -27,4 +28,11 @@ redis:
   password: "root"
   db: 0
   pool-size: 100
+  minIdle-conn: 10
+minio:
+  bucket: gin-web
+  endpoint: 127.0.0.1:9005
+  access-id: minio
+  secret: minio123
+  use-https: false
 

@@ -20,7 +20,6 @@ func AverageAmount(amount, num int64) {
 		} else {
 			rand.Seed(time.Now().UnixNano())
 			val = rand.Int63n(amount / overNum * 2)
-
 		}
 		fmt.Println("第:", i, "个人，抢的钱 :", val, "分")
 		amount -= val

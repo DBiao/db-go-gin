@@ -5,6 +5,18 @@ import (
 	"path/filepath"
 )
 
+// GetDirSize 获取整体文件夹大小
+func GetDirSize(path string) (int64, error) {
+	var size int64
+	err := filepath.Walk(path, func(_ string, info os.FileInfo, err error) error {
+		if !info.IsDir() {
+			size += info.Size()
+		}
+		return err
+	})
+	return size, err
+}
+
 func CreatePathIfNotExists(path string) error {
 	_, err := os.Stat(path)
 	if err == nil {
