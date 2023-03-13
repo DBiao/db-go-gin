@@ -20,21 +20,6 @@ type IUserService interface {
 	Register(req request.RegisterReq) response.ResponseMsg
 }
 
-const (
-	NoneAuthority     uint8 = iota // 空授权
-	Admin                          // 云平台管理员
-	Gateway                        // 网关用户
-	ApplicationChain               // 应用链用户
-	CrossChainChannel              // 跨链通道用户
-)
-
-const (
-	NoneStatus  uint8 = iota // 空授权
-	Auditing                 // 审核中
-	AuditPass                // 审核通过
-	AuditRefuse              // 审核拒绝
-)
-
 func NewUserService() IUserService {
 	return &userService{
 		userDao: dao.NewUserDao(),

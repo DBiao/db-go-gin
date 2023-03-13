@@ -45,6 +45,9 @@ func newRouter() *gin.Engine {
 	// 开启pprof
 	pprof.Register(router)
 
+	// 验证码
+	router.GET("math", controller.CaptchaMath)
+
 	// swagger接口文档
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
