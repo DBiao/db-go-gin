@@ -1,4 +1,4 @@
-package sharding
+package jinzhu
 
 func NewUser(id int64) *User {
 	u := &User{}

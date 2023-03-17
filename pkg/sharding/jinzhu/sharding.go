@@ -1,4 +1,4 @@
-package sharding
+package jinzhu
 
 import (
 	"crypto/md5"
