@@ -6,6 +6,7 @@ require (
 	github.com/JGLTechnologies/gin-rate-limit v1.5.4
 	github.com/Shopify/sarama v1.38.1
 	github.com/bits-and-blooms/bitset v1.5.0
+	github.com/bwmarrin/snowflake v0.3.0
 	github.com/casbin/casbin/v2 v2.64.0
 	github.com/casbin/gorm-adapter/v3 v3.14.0
 	github.com/fsnotify/fsnotify v1.6.0
@@ -19,6 +20,7 @@ require (
 	github.com/gookit/color v1.5.2
 	github.com/gorilla/websocket v1.5.0
 	github.com/gphper/ginmonitor v0.0.0-20210916123007-3e407ca66b8d
+	github.com/jinzhu/gorm v1.9.16
 	github.com/lestrrat-go/file-rotatelogs v2.4.0+incompatible
 	github.com/mojocn/base64Captcha v1.3.5
 	github.com/piupuer/go-helper v1.1.1
@@ -48,7 +50,6 @@ require (
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751 // indirect
 	github.com/alecthomas/units v0.0.0-20190924025748-f65c72e2690d // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
-	github.com/bwmarrin/snowflake v0.3.0 // indirect
 	github.com/bytedance/sonic v1.8.1 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/chenzhuoyu/base64x v0.0.0-20221115062448-fe3a3abad311 // indirect
