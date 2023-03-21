@@ -1,4 +1,4 @@
-package consistent_hash_code
+package consistent_hash
 
 import (
 	"testing"

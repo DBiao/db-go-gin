@@ -1,4 +1,4 @@
-package bloom_filter_code
+package bloom_filter
 
 import (
 	"github.com/spaolacci/murmur3"

@@ -1,4 +1,4 @@
-package average_code
+package average
 
 import "testing"
 
