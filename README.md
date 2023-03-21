@@ -48,8 +48,7 @@ uber代码规范：https://github.com/xxjwxc/uber_go_guide_cn
 
 
 ### 接口文档用swag框架
-启动背包后端服务后
-http://127.0.0.1:8888/swagger/index.html#/
+启动后端服务后:http://127.0.0.1:8888/swagger/index.html#/
 
 
 
