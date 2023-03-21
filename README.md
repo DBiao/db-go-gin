@@ -24,6 +24,7 @@ ORM框架：Gorm
 校验器：validata
 定时器：task
 文件系统：minio
+分布式追踪系统：jeager
 
 
 ### 项目目录简介
