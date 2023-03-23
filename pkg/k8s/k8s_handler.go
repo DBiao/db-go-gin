@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	v1 "k8s.io/api/apps/v1"
+	v2 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/errors"
 
 	metaV1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -24,7 +25,8 @@ func InitK8s() {
 	}
 }
 
-func CreateDetection(cameraId uint32) {
+// CreateDeployments 创建Deployments
+func CreateDeployments(cameraId uint32) {
 	var (
 		deployYaml []byte
 		deployJson []byte
@@ -73,6 +75,42 @@ func CreateDetection(cameraId uint32) {
 	return
 }
 
+// DeleteDeployments 创建deployments
 func DeleteDeployments(name string) error {
 	return K8sCli.ClientSet.AppsV1().Deployments("default").Delete(context.TODO(), name, metaV1.DeleteOptions{})
+}
+
+// CreateService 创建service
+func CreateService() {
+	var (
+		deployYaml []byte
+		deployJson []byte
+		err        error
+		service    = &v2.Service{}
+	)
+
+	// 读取YAML
+	if deployYaml, err = ioutil.ReadFile("./nginx-srv.yaml"); err != nil {
+		panic(err)
+	}
+
+	// YAML转JSON
+	if deployJson, err = yaml.ToJSON(deployYaml); err != nil {
+		panic(err)
+	}
+
+	// JSON转struct
+	if err = json.Unmarshal(deployJson, &service); err != nil {
+		panic(err)
+	}
+
+	_, err = K8sCli.ClientSet.CoreV1().Services("test99").Create(context.TODO(), service, metaV1.CreateOptions{})
+	if err != nil {
+		panic(err.Error())
+	}
+}
+
+// DeleteService 删除service
+func DeleteService(name string) error {
+	return K8sCli.ClientSet.CoreV1().Services("test99").Delete(context.TODO(), name, metaV1.DeleteOptions{})
 }
