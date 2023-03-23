@@ -1,7 +1,7 @@
 package main
 
 import (
-	"demo/dgrpc/proto"
+	"db-go-gin/pkg/dgrpc/proto"
 	"flag"
 	"fmt"
 	clientv3 "go.etcd.io/etcd/client/v3"

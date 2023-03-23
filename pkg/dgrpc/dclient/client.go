@@ -1,7 +1,7 @@
 package main
 
 import (
-	"demo/dgrpc/proto"
+	"db-go-gin/pkg/dgrpc/proto"
 	"flag"
 	"fmt"
 	"go.etcd.io/etcd/api/v3/mvccpb"
@@ -66,7 +66,7 @@ func (r *etcdResolver) Build(target resolver.Target, clientConn resolver.ClientC
 
 	r.clientConn = clientConn
 
-	go r.watch(fmt.Sprintf("/%s/%s/", target.Scheme, target.Endpoint()))
+	go r.watch(fmt.Sprintf("/%s/%s/", target.Scheme, target.Endpoint))
 
 	return r, nil
 }
