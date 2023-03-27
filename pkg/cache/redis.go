@@ -29,5 +29,7 @@ func InitRedis() (err error) {
 }
 
 func Close() {
-	_ = client.Close()
+	if client != nil {
+		_ = client.Close()
+	}
 }

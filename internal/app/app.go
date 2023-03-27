@@ -52,11 +52,6 @@ func Start() {
 		log.Fatal(err)
 	}
 
-	// 初始化Redis
-	if err = cache.InitRedis(); err != nil {
-		log.Fatal(err)
-	}
-
 	// 初始化Gin
 	router.InitRouter()
 }
