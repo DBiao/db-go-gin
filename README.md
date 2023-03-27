@@ -23,8 +23,6 @@
 | 17 | swagger   | v1.8.10         | 接口文档框架       | https://github.com/swaggo/swag             |
 | 17 | sarama    | v1.38.1         | kafka框架      | https://github.com/Shopify/sarama          |
 
-
-### 使用技术：
 资源监控(普罗米修斯)：Prometheus
 发送邮件：gomail.v2
 雪花算法：tool/snowflake       
