@@ -20,12 +20,14 @@ var uploadTempPath = path.Join("./static", "temp")
 
 // UploadFile 上传文件
 func UploadFile(ctx *gin.Context) {
-	file, err := ctx.FormFile("file")
+	var err error
+
+	file, _ := ctx.FormFile("file")
 	index := ctx.PostForm("index")
 	hash := ctx.PostForm("hash")
 
 	// 获取uploads下所有的文件夹
-	nameList, err := ioutil.ReadDir("./static")
+	nameList, _ := os.ReadDir("./static")
 	// 循环判断hash是否在文件里如果有就返回上传已完成
 	for _, name := range nameList {
 		tmpName := strings.Split(name.Name(), "-")[0]
@@ -35,9 +37,9 @@ func UploadFile(ctx *gin.Context) {
 	}
 
 	chunksPath := path.Join(uploadTempPath, hash, "/")
-	isPathExists, err := utils.PathExists(chunksPath)
+	isPathExists, _ := utils.PathExists(chunksPath)
 	if !isPathExists {
-		err = os.MkdirAll(chunksPath, os.ModePerm)
+		_ = os.MkdirAll(chunksPath, os.ModePerm)
 	}
 	destFile, err := os.OpenFile(path.Join(chunksPath+"/"+hash+"-"+index), syscall.O_CREAT|syscall.O_WRONLY, 0777)
 	f, _ := file.Open()
@@ -52,7 +54,7 @@ func UploadFile(ctx *gin.Context) {
 		} else if err != nil {
 			return
 		} else {
-			writer.Write(buf[:n])
+			writer.Write(buf[:n]) //nolint:errcheck
 		}
 	}
 
@@ -75,7 +77,7 @@ func Chunks(ctx *gin.Context) {
 		fmt.Fprintf(ctx.Writer, "文件上传错误")
 	}
 	chunksPath := path.Join(uploadTempPath, hash, "/")
-	files, _ := ioutil.ReadDir(chunksPath)
+	files, _ := os.ReadDir(chunksPath)
 	// 排序
 	filesSort := make(map[string]string)
 	for _, f := range files {
@@ -98,7 +100,7 @@ func Chunks(ctx *gin.Context) {
 		fileName := path.Join(chunksPath, "/"+filesSort[strconv.Itoa(i)])
 		data, err := ioutil.ReadFile(fileName)
 		fmt.Println(err)
-		fs.Write(data)
+		fs.Write(data) //nolint:errcheck
 
 		wg.Done()
 	}
