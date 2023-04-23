@@ -4,7 +4,6 @@ import (
 	_ "db-go-gin/docs"
 	"db-go-gin/internal/app/controller"
 	"db-go-gin/internal/global"
-	"db-go-gin/internal/middleware"
 	"fmt"
 	"log"
 	"net/http"
@@ -13,6 +12,7 @@ import (
 	"github.com/gin-contrib/pprof"
 	ginzap "github.com/gin-contrib/zap"
 	"github.com/gin-gonic/gin"
+	cors "github.com/rs/cors/wrapper/gin"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"go.uber.org/zap"
@@ -40,7 +40,8 @@ func newRouter() *gin.Engine {
 	router := newGin()
 
 	// 使用跨域中间件和权限验证
-	router.Use(middleware.Cors())
+	router.Use(cors.Default())
+	//router.Use(middleware.Cors())
 
 	// 开启pprof
 	pprof.Register(router)

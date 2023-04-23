@@ -26,6 +26,7 @@ require (
 	github.com/piupuer/go-helper v1.1.1
 	github.com/prometheus/client_golang v1.14.0
 	github.com/redis/go-redis/v9 v9.0.2
+	github.com/rs/cors/wrapper/gin v0.0.0-20230301160956-5c2b877d2a03
 	github.com/snowlyg/multi v0.0.42
 	github.com/sony/sonyflake v1.1.0
 	github.com/spaolacci/murmur3 v1.1.0
@@ -142,6 +143,7 @@ require (
 	github.com/prometheus/procfs v0.8.0 // indirect
 	github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20200410134404-eec4a21b6bb0 // indirect
+	github.com/rs/cors v1.8.1 // indirect
 	github.com/rs/xid v1.2.1 // indirect
 	github.com/satori/go.uuid v1.2.1-0.20181028125025-b2ce2384e17b // indirect
 	github.com/shopspring/decimal v1.3.1 // indirect
